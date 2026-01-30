@@ -1,30 +1,29 @@
-from setuptools import setup, find_packages
-import install_bashhub
-from bashhub.version import __version__ as version
+#!/usr/bin/env python
+from setuptools import setup, find_packages  # This setup relies on setuptools since distutils is insufficient and badly hacked code
 
-exec (open('bashhub/version.py').read())
+version = '0.1.0'
+author = 'Pascal Wolf'
+author_email = 'wolf@physik.uni-bonn.de'
 
-tests_require = ['pytest>=3.3.1']
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
 
-setup(name='bashhub',
-      version=version,
-      description='Bashhub.com python client',
-      url='https://github.com/rcaloras/bashhub-client',
-      author='Ryan Caloras',
-      author_email='ryan@bashhub.com',
-      license='Apache',
-      packages=find_packages(),
-      include_package_data=True,
-      install_requires=[
-          'requests==2.23.0', 'jsonpickle==2.0.0', 'click==6.7',
-          'npyscreen==4.10.5', 'python-dateutil==2.8.1',
-          'pymongo==3.10.1', 'inflection==0.3.1', 'humanize==1.0.0',
-          'future==0.18.3', 'mock==3.0.5'
-      ],
-      tests_require=tests_require,
-      extras_require={'test': tests_require},
-      entry_points={
-          'console_scripts': ['bh=bashhub.bh:main',
-                              'bashhub=bashhub.bashhub:main']
-      },
-      zip_safe=False)
+setup(
+    name='irrad_spectroscopy',
+    version=version,
+    description='Gamma spectroscopy of irradiated sensors, chips and PCBs.',
+    url='https://github.com/SiLab-Bonn/irrad_spectroscopy',
+    license='MIT License',
+    long_description='',
+    author=author,
+    maintainer=author,
+    author_email=author_email,
+    maintainer_email=author_email,
+    packages=find_packages(),
+    setup_requires=['setuptools'],
+    install_requires=required,
+    include_package_data=True,  # accept all data files and directories matched by MANIFEST.in or found in source control
+    package_data={'': ['README.*', 'VERSION'], 'docs': ['*'], 'examples': ['*']},
+    keywords=['silicon', 'irradiation', 'radioactivity', 'gamma', 'spectroscopy'],
+    platforms='any'
+)

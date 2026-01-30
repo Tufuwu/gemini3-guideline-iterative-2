@@ -1,15 +1,13 @@
-# Compiled python modules.
+# example checkpoints
+irrad_spectroscopy/examples/.ipynb_checkpoints/
+# example output folder
+irrad_spectroscopy/examples/output/
+# pyc
 *.pyc
-
-# Swap files
-.*.swp
-
-# Exports for dev mode which should be for local development only
-dev-exports.sh
-
-# Setuptools distribution folder.
-/dist/
-
-# Python egg metadata, regenerated from source files by setuptools.
-/*.egg-info
-/*.egg
+# pycharm
+.idea/
+# eclipse
+.project
+.pydevproject
+# egg-info folder
+irrad_spectroscopy.egg-info/
